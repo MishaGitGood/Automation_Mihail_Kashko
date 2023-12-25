@@ -14,180 +14,77 @@ import static driver.SimpleWebDriver.*;
 
 public class LamCalcTest {
 
-
-
     @BeforeTest
-    public void setUp(){
-       setUpWebDriver("https://masterskayapola.ru/kalkulyator/laminata.html");
+    public void setUp() {
+        setUpWebDriver("https://masterskayapola.ru/kalkulyator/laminata.html");
     }
 
 
     @Test
-    public void test_one(){
-        getWebDriver().findElement(By.name("calc_roomwidth")).click();
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys("10");
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_roomheight")).click();
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys("5");
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_lamwidth")).click();
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys("1500");
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_lamheight")).click();
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys("184");
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_inpack")).click();
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys("20");
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_price")).click();
-        getWebDriver().findElement(By.name("calc_price")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_price")).sendKeys("750");
-        getWebDriver().findElement(By.name("calc_price")).sendKeys(Keys.ENTER);
-
-        //Select calc_direct = new Select(getWebDriver().findElement(By.className("form-control bigheight")));
-        //calc_direct.selectByValue("toh");
-
-        getWebDriver().findElement(By.name("calc_bias")).click();
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys("250");
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_walldist")).click();
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys("15");
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys(Keys.ENTER);
+    public void test_one() {
+        calc("calc_roomwidth", "10");
+        calc("calc_roomheight", "5");
+        calc("calc_lamwidth", "1500");
+        calc("calc_lamheight", "184");
+        calc("calc_inpack", "20");
+        calc("calc_price", "750");
+        calc("calc_bias", "250");
+        calc("calc_walldist", "15");
 
         WebElement Button = getWebDriver().findElement(By.cssSelector("[class='btn btn-secondary btn-lg tocalc']"));
         Button.click();
 
         WebElement result = getWebDriver().findElement(By.id("l_count"));
-        Assert.assertTrue(result.isDisplayed(),"188");
-
-
+        Assert.assertTrue(result.isDisplayed(), "188");
     }
 
+
     @Test
-    public void test_two(){
-        getWebDriver().findElement(By.name("calc_roomwidth")).click();
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys("7");
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_roomheight")).click();
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys("4");
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_lamwidth")).click();
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys("1350");
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_lamheight")).click();
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys("177");
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_inpack")).click();
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys("18");
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_price")).click();
-        getWebDriver().findElement(By.name("calc_price")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_price")).sendKeys("900");
-        getWebDriver().findElement(By.name("calc_price")).sendKeys(Keys.ENTER);
-
-        //Select calc_direct = new Select(getWebDriver().findElement(By.className("form-control bigheight")));
-        //calc_direct.selectByValue("toh");
-
-        getWebDriver().findElement(By.name("calc_bias")).click();
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys("235");
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_walldist")).click();
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys("11");
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys(Keys.ENTER);
+    public void test_two() {
+        calc("calc_roomwidth", "7");
+        calc("calc_roomheight", "4");
+        calc("calc_lamwidth", "1350");
+        calc("calc_lamheight", "177");
+        calc("calc_inpack", "18");
+        calc("calc_price", "900");
+        calc("calc_bias", "235");
+        calc("calc_walldist", "11");
 
         WebElement Button = getWebDriver().findElement(By.cssSelector("[class='btn btn-secondary btn-lg tocalc']"));
         Button.click();
 
         WebElement result = getWebDriver().findElement(By.id("l_count"));
-        Assert.assertTrue(result.isDisplayed(),"122");
-
-
+        Assert.assertTrue(result.isDisplayed(), "122");
     }
 
     @Test
-    public void test_three(){
-        getWebDriver().findElement(By.name("calc_roomwidth")).click();
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_roomwidth")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_roomheight")).click();
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_roomheight")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_lamwidth")).click();
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_lamwidth")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_lamheight")).click();
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_lamheight")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_inpack")).click();
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_inpack")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_price")).click();
-        getWebDriver().findElement(By.name("calc_price")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_price")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_price")).sendKeys(Keys.ENTER);
-
-        //Select calc_direct = new Select(getWebDriver().findElement(By.className("form-control bigheight")));
-        //calc_direct.selectByValue("toh");
-
-        getWebDriver().findElement(By.name("calc_bias")).click();
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_bias")).sendKeys(Keys.ENTER);
-
-        getWebDriver().findElement(By.name("calc_walldist")).click();
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys("0");
-        getWebDriver().findElement(By.name("calc_walldist")).sendKeys(Keys.ENTER);
+    public void test_three() {
+        calc("calc_roomwidth", "0");
+        calc("calc_roomheight", "0");
+        calc("calc_lamwidth", "0");
+        calc("calc_lamheight", "0");
+        calc("calc_inpack", "0");
+        calc("calc_price", "0");
+        calc("calc_bias", "0");
+        calc("calc_walldist", "0");
 
         WebElement Button = getWebDriver().findElement(By.cssSelector("[class='btn btn-secondary btn-lg tocalc']"));
         Button.click();
 
         WebElement result = getWebDriver().findElement(By.id("l_count"));
-        Assert.assertTrue(result.isDisplayed(),"200");
-
-
+        Assert.assertTrue(result.isDisplayed(), "200");
     }
+
+    private static void calc(String locator, String value) {
+        getWebDriver().findElement(By.name(locator)).click();
+        getWebDriver().findElement(By.name(locator)).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
+        getWebDriver().findElement(By.name(locator)).sendKeys(value);
+        getWebDriver().findElement(By.name(locator)).sendKeys(Keys.ENTER);
+    }
+
 
     @AfterTest
-    public void tearDown(){quit();}
-
-
-
-
+    public void tearDown() {
+        quit();
+    }
 }
