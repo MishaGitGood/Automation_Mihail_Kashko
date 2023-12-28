@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
+
 public class SimpleWebDriver {
 
     private static WebDriver webDriver;
@@ -41,5 +42,4 @@ public class SimpleWebDriver {
     }
 
 }
-
 
