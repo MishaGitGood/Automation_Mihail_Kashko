@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Home Work 9" parallel="tests">
+    <test name="Home Work 9">
+        <classes>
+            <class name="lecture_9.homeWork.SaucedemoLoginTest"/>
+            <class name="lecture_9.homeWork.SaucedemoCartTest"></class>
+        </classes>
+    </test>
+</suite>

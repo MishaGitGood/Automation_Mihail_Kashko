@@ -1,6 +1,7 @@
 package pageObjects.saucedemo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
@@ -52,6 +53,14 @@ public class LoginPage extends BasePage {
         return Arrays.stream(getDriver().findElement(passwordCredentials).getText().split("\n"))
                 .filter(value -> !value.contains("Password for all users"))
                 .findFirst().orElse("");
+    }
+
+    public void successfulLogin(){
+        wait.until(ExpectedConditions.urlToBe("https://www.saucedemo.com/inventory.html"));
+    }
+
+    public void unSuccessfulLogin(){
+        wait.until(ExpectedConditions.urlToBe("https://www.saucedemo.com/"));
     }
 }
 
