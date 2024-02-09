@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
+import static propertyUtils.PropertyReader.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +25,9 @@ public class LoginPage extends BasePage {
     public void open(String url) {
         getDriver().get(url);
     }
+    public void open() {
+        getDriver().get(getProperties().getProperty("url"));
+    }
 
     public void verifyPage() {
         Assert.assertEquals(getDriver().findElement(header).getText(), "Swag Labs", "Wrong header name.");
@@ -35,9 +39,19 @@ public class LoginPage extends BasePage {
         sendKeys(this.username, username);
     }
 
+    public void enterUsername() {
+        sendKeys(this.username, getProperties().getProperty("username"));
+    }
+
+
     public void enterPassword(String password) {
         sendKeys(this.password, password);
     }
+
+    public void enterPassword() {
+        sendKeys(this.password, getProperties().getProperty("password"));
+    }
+
 
     public void clickLogin() {
         click(login);

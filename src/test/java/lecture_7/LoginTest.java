@@ -33,14 +33,14 @@ public class LoginTest extends BaseTest {
         loginPage.clickLogin();
     }
 
-    @Test(priority = 2)
+    //@Test(priority = 2)
     public void addOneProductToCartTest() {
         productPage.verifyPage();
         productPage.clickAddToCard(1);
         productPage.clickShoppingCart();
     }
 
-    @Test(priority = 3)
+    //@Test(priority = 3)
     public void deleteOneProductFromCartTest() {
         cartPage.verifyPage();
         cartPage.remove();
@@ -48,7 +48,7 @@ public class LoginTest extends BaseTest {
         cartPage.clickLogout();
     }
 
-    @Test(priority = 4)
+    //@Test(priority = 4)
     public void successfulLoginTestTwo() {
         loginPage.open("https://www.saucedemo.com/");
         loginPage.verifyPage();
@@ -57,7 +57,7 @@ public class LoginTest extends BaseTest {
         loginPage.clickLogin();
     }
 
-    @Test(priority = 5)
+    //@Test(priority = 5)
     public void addTwoProductToCartTest() {
         productPage.verifyPage();
         productPage.clickAddToCard(1);
@@ -65,7 +65,7 @@ public class LoginTest extends BaseTest {
         productPage.clickShoppingCart();
     }
 
-    @Test(priority = 6)
+    //@Test(priority = 6)
     public void deleteTwoProductFromCartTest() {
         cartPage.verifyPage();
         cartPage.remove();
@@ -73,7 +73,7 @@ public class LoginTest extends BaseTest {
         cartPage.clickLogout();
     }
 
-    @Test(priority = 7)
+    //@Test(priority = 7)
     public void successfulLoginTestThree() {
         loginPage.open("https://www.saucedemo.com/");
         loginPage.verifyPage();

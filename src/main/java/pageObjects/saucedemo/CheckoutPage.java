@@ -7,6 +7,7 @@ import pageObjects.baseObjects.BasePage;
 import java.util.Arrays;
 
 import static driver.DriverCreation.getDriver;
+import static propertyUtils.PropertyReader.*;
 
 public class CheckoutPage extends BasePage {
     private final By header = By.className("app_logo");
