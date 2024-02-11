@@ -7,6 +7,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
+import static java.io.File.separator;
+import static javax.swing.UIManager.put;
 
 public class DriverCreation {
 
@@ -18,6 +23,10 @@ public class DriverCreation {
                 case CHROME:
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("start-maximized");
+                    options.setExperimentalOption("prefs", new HashMap<>(){{
+                        put("profile.default_content_settings.popups", 0);
+                        put("download.default_directory", System.getProperty("user.dir") + separator + "target");
+                    }});
                     webDriver = new ChromeDriver(options);
                     break;
                 case FIREFOX:
