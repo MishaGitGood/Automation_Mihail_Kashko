@@ -13,6 +13,7 @@ public class CartPage extends BasePage {
     private final By header = By.className("app_logo");
     private final By cartList = By.className("cart_list");
     private final By remove = By.id("remove-sauce-labs-bike-light");
+    private final By removeButton = By.cssSelector("[class='btn btn_secondary btn_small cart_button']");
     private final By buttonCheckout = By.id("checkout");
     private final By burgerMenu = By.id("react-burger-menu-btn");
     private final By logout = By.id("logout_sidebar_link");
@@ -26,6 +27,10 @@ public class CartPage extends BasePage {
 
     public void clickCheckout() {
         click(buttonCheckout);
+    }
+
+    public void clickRemoveByIndex(Integer index) {
+        click(driver.findElements(removeButton).get(index - 1));
     }
     public void clickBurgerMenu() {
         click(burgerMenu);
