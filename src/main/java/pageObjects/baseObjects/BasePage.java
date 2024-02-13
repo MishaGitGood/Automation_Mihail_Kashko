@@ -15,12 +15,12 @@ import static driver.DriverCreation.getDriver;
 public abstract class BasePage {
 
     protected WebDriver driver;
-    protected WebDriverWait wait;
+    public WebDriverWait wait;
     protected Actions actions;
 
     {
         driver = getDriver();
-        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
         actions = new Actions(driver);
     }
 

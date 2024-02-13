@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.baseObjects.BaseTest;
 import pageObjects.herokuapp.FramesPage;
-import pageObjects.herokuapp.HomePage;
+import pageObjects.herokuapp.home.HomePage;
 import pageObjects.herokuapp.HomePageItems;
 
 public class IFrameTest extends BaseTest {

@@ -1,5 +1,7 @@
 package lecture_9.homeWork;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,7 +28,8 @@ public class SaucedemoCartTest extends BaseTest {
         loginPage.clickLogin();
     }
 
-    @Test(priority = 1, invocationCount = 3)
+    @Step("Add product to the cart with use invocationCount")
+    @Test(priority = 1, invocationCount = 3, description = "Add product to the cart")
     public void addProductsTest2() {
         productPage.verifyPage();
         productPage.clickItem("Sauce Labs Onesie");
@@ -37,7 +40,8 @@ public class SaucedemoCartTest extends BaseTest {
         cartPage.clickLogout();
     }
 
-    @Test(priority = 2, dataProvider = "addProductToCart")
+    @Step("Add product to the cart with use dataProvider")
+    @Test(priority = 2, dataProvider = "addProductToCart", description = "Add product to the cart")
     public void addProductToCartTest(String product) {
         productPage.verifyPage();
         productPage.clickItem(product);

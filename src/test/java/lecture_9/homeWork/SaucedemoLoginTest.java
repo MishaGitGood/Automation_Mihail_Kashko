@@ -1,5 +1,7 @@
 package lecture_9.homeWork;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
@@ -17,7 +19,8 @@ public class SaucedemoLoginTest extends BaseTest {
         loginPage.open(url);
     }
 
-    @Test(dataProvider = "userName_and_userPassword")
+    @Step("Login with dataProvider")
+    @Test(dataProvider = "userName_and_userPassword", description = "Successful and unsuccessful login")
     public void loginTest(String name, String password, String status) {
         loginPage.verifyPage();
         loginPage.enterUsername(name);
