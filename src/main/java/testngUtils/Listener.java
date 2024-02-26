@@ -28,5 +28,4 @@ public class Listener implements ITestListener {
     public void onFinish(ITestContext context) {
         System.out.println("Hello i'm finished with :: " + context.getSuite().getName());
     }
-
 }

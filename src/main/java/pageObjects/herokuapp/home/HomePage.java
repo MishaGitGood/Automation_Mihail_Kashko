@@ -42,7 +42,6 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnItem(HomePageItems item) {
-        wait.until(visibilityOfElementLocated(getItemLocator(item.getItem())));
         wait.until(elementToBeClickable(getItemLocator(item.getItem())));
         click(getItemLocator(item.getItem()));
     }

@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static driver.DriverCreation.getDriver;
 
@@ -30,13 +32,12 @@ public abstract class BasePage {
     }
 
     protected void click(By by) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         click(driver.findElement(by));
     }
 
     protected void click(WebElement element) {
         System.out.println("Click on element :: " + element);
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        waitUntilElementToBeClickable(element);
         element.click();
     }
 
@@ -50,7 +51,60 @@ public abstract class BasePage {
         element.sendKeys(charSequences);
     }
 
+    protected void waitUntil(Integer seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     protected Integer getElementsCount(By by) {
         return driver.findElements(by).size();
+    }
+
+
+    protected String getElementText(By by) {
+        return getElementText(driver.findElement(by));
+    }
+
+    protected String getElementText(WebElement webElement) {
+        return webElement.getText();
+    }
+
+    protected List<String> getElementTexts(By by) {
+        return getElementTexts(driver.findElements(by));
+    }
+
+    protected List<String> getElementTexts(List<WebElement> webElements) {
+        return webElements.stream().map(data -> data.getText()).collect(Collectors.toList());
+    }
+
+    protected void waitUntilTextToBe(By by, String expectedText) {
+        wait.until(ExpectedConditions.textToBe(by, expectedText));
+        System.out.println("Wait until text to be present :: " + expectedText);
+    }
+
+    protected void waitUntilTextNotToBe(By by, String expectedText) {
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(by, expectedText)));
+        System.out.println("Wait until text not to be present :: " + expectedText);
+    }
+
+    protected void waitUntilElementToBeClickable(By by) {
+        waitUntilElementToBeClickable(driver.findElement(by));
+    }
+
+    protected void waitUntilElementToBeClickable(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        System.out.println("Wait until element to be clickable :: " + element);
+    }
+
+    protected void waitUntilElementToBeNotClickable(By by) {
+        waitUntilElementToBeNotClickable(driver.findElement(by));
+    }
+
+    protected void waitUntilElementToBeNotClickable(WebElement element) {
+        wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(element)));
+        System.out.println("Wait until element not to be clickable :: " + element);
     }
 }
