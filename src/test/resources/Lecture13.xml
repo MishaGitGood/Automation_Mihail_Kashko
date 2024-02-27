@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="lecture13">
+    <test name="Login Test" enabled="false">
+        <classes>
+            <class name="lesson13.practice.LoginPageFactoryTest"/>
+        </classes>
+    </test>
+    <test name="Product Test" enabled="false">
+        <classes>
+            <class name="lesson13.practice.ProductPageFactoryTest"/>
+        </classes>
+    </test>
+    <test name="Value Object Test" enabled="false">
+        <classes>
+            <class name="lesson13.practice.ValueObjectTest"/>
+        </classes>
+    </test>
+    <test name="Cart page test">
+        <classes>
+            <class name="lesson13.hw.CartPageTest"/>
+        </classes>
+    </test>
+
+</suite>

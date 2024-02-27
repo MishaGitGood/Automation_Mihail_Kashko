@@ -23,7 +23,7 @@ public class DriverCreation {
                 case CHROME:
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("start-maximized");
-                    options.setExperimentalOption("prefs", new HashMap<>(){{
+                    options.setExperimentalOption("prefs", new HashMap<>() {{
                         put("profile.default_content_settings.popups", 0);
                         put("download.default_directory", System.getProperty("user.dir") + separator + "target");
                     }});
@@ -45,6 +45,9 @@ public class DriverCreation {
     }
 
     public static void quitDriver() {
-        webDriver.quit();
+        if (webDriver != null) {
+            webDriver.quit();
+            webDriver = null;
+        }
     }
 }
